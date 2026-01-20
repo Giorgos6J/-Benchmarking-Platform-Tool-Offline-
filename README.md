@@ -1,5 +1,7 @@
 # Benchmarking Platform Tool (Offline)
 
+<img width="1920" height="1040" alt="Benchmarking Platform Tool και 1 ακόμη σελίδα - Προσωπικό - Microsoft​ Edge 20_1_2026 11_10_41 μμ" src="https://github.com/user-attachments/assets/f937abad-f698-4be2-a865-01146815661e" />
+
 An offline benchmarking platform for comparing JavaScript algorithm implementations.
 The tool allows users to configure benchmark experiments, execute them via Node.js,
 and explore results through a static HTML report with filtering, comparison, and export features.
