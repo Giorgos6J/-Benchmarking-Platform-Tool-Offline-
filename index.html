@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Benchmarking Platform Tool</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; color:#111; background:#fff; }
+    h2 { margin:0 0 6px; }
+    h3 { margin:0 0 8px; font-size:14px; }
+    .muted { color:#666; font-size:12px; }
+    .pill { display:inline-block; padding:2px 8px; border:1px solid #ddd; border-radius:999px; font-size:12px; margin-left:8px; }
+
+    .grid { display:flex; gap:16px; flex-wrap:wrap; margin-top:12px; }
+    .card { border:1px solid #eee; border-radius:14px; padding:14px; background:#fff; flex:1 1 420px; }
+
+    label { font-size:12px; display:block; margin:10px 0 4px; color:#333; }
+    input, select, textarea { width:100%; padding:8px; border:1px solid #ddd; border-radius:10px; font-size:12px; }
+    textarea { min-height:120px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .row > div { flex:1; min-width:150px; }
+
+    .buttons { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    button { padding:8px 12px; border:1px solid #d0d0d0; background:#fafafa; border-radius:10px; cursor:pointer; font-size:12px; }
+    button.primary { background:#2563eb; border-color:#2563eb; color:#fff; }
+    button:hover { background:#f0f0f0; }
+    button.primary:hover { background:#1e4fd7; }
+
+    table { border-collapse:collapse; width:100%; margin-top:10px; }
+    th, td { border:1px solid #ddd; padding:8px; font-size:12px; }
+    th { background:#f5f5f5; text-align:left; }
+    td.num { text-align:right; font-variant-numeric: tabular-nums; }
+
+    code { background:#f7f7f7; padding:1px 6px; border-radius:6px; border:1px solid #eee; }
+
+    .panel { border:1px solid #eee; border-radius:14px; padding:12px; margin-top:12px; }
+    .statline { font-size:12px; margin-top:6px; }
+    .statline b { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+
+<body>
+
+  <h2>
+    Benchmarking Platform Tool
+    <span class="pill">Offline App</span>
+  </h2>
+
+  <div class="muted">
+    Configure runs, execute via Node.js, explore results offline with filters, export filtered CSV/JSON, reset filters, and compare A vs B (no server).
+  </div>
+
+  <div class="grid">
+
+    <!-- CONFIG -->
+    <div class="card">
+      <h3>1) Benchmark Configuration</h3>
+
+      <label>Run tag</label>
+      <input id="tag" value="run" />
+
+      <label>Algorithms (Ctrl / Shift multi-select)</label>
+      <select id="algos" multiple size="6"></select>
+      <div class="muted">Empty selection = run all available algorithms.</div>
+
+      <div class="row">
+        <div>
+          <label>Input type</label>
+          <select id="inputType">
+            <option value="random">random</option>
+            <option value="sorted">sorted</option>
+            <option value="reversed">reversed</option>
+            <option value="nearlySorted">nearlySorted</option>
+            <option value="duplicates">duplicates</option>
+            <option value="fewUnique">fewUnique</option>
+            <option value="uniform">uniform</option>
+          </select>
+        </div>
+        <div>
+          <label>Allow user plugins</label>
+          <select id="allowUser">
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Input sizes (comma-separated)</label>
+          <input id="sizes" value="1000,10000" />
+        </div>
+        <div>
+          <label>Runs</label>
+          <input id="runs" type="number" value="3" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Iterations</label>
+          <input id="iters" type="number" value="10" />
+        </div>
+        <div>
+          <label>Warmup iterations</label>
+          <input id="warmup" type="number" value="3" />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="primary" id="btnGen">Generate Config</button>
+        <button id="btnCopyCfg">Copy Config JSON</button>
+        <button id="btnCopyCmd">Copy CMD Command</button>
+        <button id="btnDownloadUserBat">Download User .bat (Custom Test)</button>
+      </div>
+
+      <div class="muted" style="margin-top:6px;">
+        The downloaded <code>.bat</code> should be moved into <code>src\</code> and then double-clicked.
+        It will open Notepad at <code>src\algorithms\user\userCustom.plugin.js</code>, then run the pipeline.
+      </div>
+
+      <label>Generated config (<code>src\config\runConfig.json</code>)</label>
+      <textarea id="cfg"></textarea>
+
+      <label>CMD command</label>
+      <textarea id="cmd" readonly></textarea>
+
+      <div class="muted">
+        After running the benchmark, update results with:<br/>
+        <code>node analysis\buildSummary.js</code><br/>
+        <code>node analysis\buildReportData.js</code>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="card">
+      <h3>2) Results</h3>
+      <div id="meta" class="muted"></div>
+
+      <div class="buttons" style="margin-top:8px;">
+        <button id="btnResetFilters">Reset filters</button>
+        <button id="btnExportCsv">Export filtered CSV</button>
+        <button id="btnExportJson">Export filtered JSON</button>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label>Filter: Algorithm</label>
+          <select id="fAlg"></select>
+        </div>
+        <div>
+          <label>Filter: Size</label>
+          <select id="fSize"></select>
+        </div>
+        <div>
+          <label>Filter: Type</label>
+          <select id="fType"></select>
+        </div>
+        <div>
+          <label>Filter: Source</label>
+          <select id="fSrc"></select>
+        </div>
+        <div>
+          <label>Search</label>
+          <input id="fQ" placeholder="quick, 10000, random…" />
+        </div>
+      </div>
+
+      <!-- COMPARE -->
+      <div class="panel">
+        <h3 style="margin:0 0 6px;">Compare A vs B (on same size/type/source filters)</h3>
+        <div class="row" style="margin-top:4px;">
+          <div>
+            <label>A (Algorithm)</label>
+            <select id="cmpA"></select>
+          </div>
+          <div>
+            <label>B (Algorithm)</label>
+            <select id="cmpB"></select>
+          </div>
+          <div style="align-self:flex-end; min-width:150px;">
+            <button id="btnCompare" class="primary" style="width:100%;">Compare</button>
+          </div>
+        </div>
+        <div id="cmpOut" class="muted">Select A and B, then click Compare.</div>
+        <div class="muted" style="margin-top:6px;">
+          Interpretation: For <b>time/memory</b> negative % means B is better (lower). For <b>ops/sec</b> positive % means B is better (higher).
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Algorithm</th>
+            <th class="num">Size</th>
+            <th>Type</th>
+            <th class="num">Runs</th>
+            <th class="num">Time mean (ms)</th>
+            <th class="num">Ops/sec</th>
+            <th class="num">Memory (KB)</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- Must exist: report/data.js defines window.__REPORT_DATA__ -->
+  <script src="data.js"></script>
+  <script>
+    function fmt(n, d) {
+      var x = Number(n);
+      if (!isFinite(x)) return '';
+      return x.toFixed(d);
+    }
+
+    function uniq(arr) {
+      var s = {};
+      var out = [];
+      for (var i = 0; i < arr.length; i++) {
+        var v = arr[i];
+        if (v === null || v === undefined) continue;
+        v = String(v).trim();
+        if (!v) continue;
+        if (!s[v]) { s[v] = true; out.push(v); }
+      }
+      return out;
+    }
+
+    function fillSelect(sel, values, label) {
+      sel.innerHTML = '';
+      var o = document.createElement('option');
+      o.value = '';
+      o.textContent = label;
+      sel.appendChild(o);
+
+      values.forEach(function (v) {
+        var x = document.createElement('option');
+        x.value = v;
+        x.textContent = v;
+        sel.appendChild(x);
+      });
+    }
+
+    function fillSelectNoAll(sel, values) {
+      sel.innerHTML = '';
+      values.forEach(function (v) {
+        var x = document.createElement('option');
+        x.value = v;
+        x.textContent = v;
+        sel.appendChild(x);
+      });
+    }
+
+    function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(function(){});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    }
+
+    function downloadText(filename, text, mime) {
+      var blob = new Blob([text], { type: (mime || 'text/plain;charset=utf-8;') });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function safeStamp() {
+      return new Date().toISOString().replace(/[:.]/g, '-');
+    }
+
+    function safeSlug(s) {
+      return String(s || '')
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^a-z0-9_-]+/g, '')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    function currentExportName(ext) {
+      var a = safeSlug(fAlg.value || 'all-algorithms');
+      var sz = safeSlug(fSize.value || 'all-sizes');
+      var t = safeSlug(fType.value || 'all-types');
+      var src = safeSlug(fSrc.value || 'all-sources');
+      return 'benchmark_export_' + a + '_' + sz + '_' + t + '_' + src + '_' + safeStamp() + '.' + ext;
+    }
+
+    function exportCsv(filename, rows) {
+      if (!rows || !rows.length) {
+        alert('No rows to export');
+        return;
+      }
+
+      var headers = [
+        'algorithm',
+        'displayName',
+        'category',
+        'input_size',
+        'input_type',
+        'runs',
+        'time_ms_mean',
+        'time_ms_std',
+        'ops_sec_mean',
+        'memory_kb_mean',
+        'source'
+      ];
+
+      function esc(v) {
+        if (v === null || v === undefined) return '';
+        var s = String(v);
+        if (s.indexOf('"') !== -1 || s.indexOf(',') !== -1 || s.indexOf('\n') !== -1) {
+          return '"' + s.replace(/"/g, '""') + '"';
+        }
+        return s;
+      }
+
+      var csv = [];
+      csv.push(headers.join(','));
+
+      rows.forEach(function (r) {
+        csv.push([
+          esc(r.algorithm),
+          esc(r.displayName),
+          esc(r.category),
+          esc(r.input_size),
+          esc(r.input_type),
+          esc(r.runs),
+          esc(r.time_ms_mean),
+          esc(r.time_ms_std),
+          esc(r.ops_sec_mean),
+          esc(r.memory_kb_mean),
+          esc(r.__sourceFile)
+        ].join(','));
+      });
+
+      downloadText(filename, csv.join('\n'), 'text/csv;charset=utf-8;');
+    }
+
+    // CONFIG elements
+    var tagEl = document.getElementById('tag');
+    var algosEl = document.getElementById('algos');
+    var inputTypeEl = document.getElementById('inputType');
+    var allowUserEl = document.getElementById('allowUser');
+    var sizesEl = document.getElementById('sizes');
+    var runsEl = document.getElementById('runs');
+    var itersEl = document.getElementById('iters');
+    var warmupEl = document.getElementById('warmup');
+    var cfgEl = document.getElementById('cfg');
+    var cmdEl = document.getElementById('cmd');
+
+    // RESULTS elements
+    var fAlg = document.getElementById('fAlg');
+    var fSize = document.getElementById('fSize');
+    var fType = document.getElementById('fType');
+    var fSrc = document.getElementById('fSrc');
+    var fQ = document.getElementById('fQ');
+    var metaEl = document.getElementById('meta');
+    var tbody = document.getElementById('tbody');
+
+    // Compare elements
+    var cmpA = document.getElementById('cmpA');
+    var cmpB = document.getElementById('cmpB');
+    var btnCompare = document.getElementById('btnCompare');
+    var cmpOut = document.getElementById('cmpOut');
+
+    function parseSizes(s) {
+      return String(s || '')
+        .split(',')
+        .map(function (x) { return parseInt(x.trim(), 10); })
+        .filter(function (n) { return isFinite(n) && n > 0; });
+    }
+
+    function getSelectedAlgoIds() {
+      var out = [];
+      for (var i = 0; i < algosEl.options.length; i++) {
+        var opt = algosEl.options[i];
+        if (opt.selected) out.push(opt.value);
+      }
+      return out;
+    }
+
+    function generateConfig() {
+      var cfg = {
+        tag: (tagEl.value || 'run').trim(),
+        allowUserPlugins: allowUserEl.value === 'true',
+        selectedIds: getSelectedAlgoIds(), // empty => all
+        sizes: parseSizes(sizesEl.value),
+        inputType: inputTypeEl.value,
+        runs: parseInt(runsEl.value, 10) || 3,
+        iterations: parseInt(itersEl.value, 10) || 10,
+        warmupIterations: parseInt(warmupEl.value, 10) || 3
+      };
+
+      if (!cfg.sizes.length) cfg.sizes = [1000, 10000];
+
+      cfgEl.value = JSON.stringify(cfg, null, 2);
+
+      cmdEl.value =
+        'node --expose-gc benchmark\\runControlledFromConfig.js config\\runConfig.json\n' +
+        'node analysis\\buildSummary.js\n' +
+        'node analysis\\buildReportData.js\n' +
+        'start report\\index.html';
+
+      return cfg;
+    }
+
+    document.getElementById('btnGen').addEventListener('click', function () {
+      generateConfig();
+      alert('Config generated. Paste it into src\\config\\runConfig.json');
+    });
+
+    document.getElementById('btnCopyCfg').addEventListener('click', function () {
+      if (!cfgEl.value) generateConfig();
+      copyText(cfgEl.value);
+      alert('Config JSON copied');
+    });
+
+    document.getElementById('btnCopyCmd').addEventListener('click', function () {
+      if (!cmdEl.value) generateConfig();
+      copyText(cmdEl.value);
+      alert('CMD command copied');
+    });
+
+    // NEW: Download User BAT (opens Notepad in src\algorithms\user and runs pipeline)
+    document.getElementById('btnDownloadUserBat').addEventListener('click', function () {
+      var cfg = generateConfig(); // reuse current fields (tag/inputType)
+      var batLines = [
+'@echo off',
+'setlocal enabledelayedexpansion',
+'',
+'REM ==========================================',
+'REM Benchmarking Platform Tool - User Custom Test',
+'REM 1) Opens Notepad for a custom plugin file',
+'REM 2) Runs benchmark + builds report + opens UI',
+'REM',
+'REM IMPORTANT:',
+'REM - Move this .bat into the PROJECT src\\ folder before running',
+'REM   (same level as algorithms\\, benchmark\\, analysis\\, report\\)',
+'REM ==========================================',
+'',
+'cd /d "%~dp0"',
+'',
+'REM ---- Custom plugin path ----',
+'set USER_DIR=algorithms\\user',
+'set PLUGIN_FILE=%USER_DIR%\\userCustom.plugin.js',
+'',
+'if not exist "%USER_DIR%" mkdir "%USER_DIR%"',
+'',
+'REM ---- Create starter plugin if missing ----',
+'if not exist "%PLUGIN_FILE%" (',
+'  (',
+'    echo module.exports = {',
+'    echo   id: "user-custom-test",',
+'    echo   displayName: "User Custom Test",',
+'    echo   category: "sorting",',
+'    echo   constraints: {},',
+'    echo   defaultSizes: [1000, 10000],',
+'    echo.',
+'    echo   run: function ^(input^) {',
+'    echo     // Write your algorithm here.',
+'    echo     // IMPORTANT: clone input if you modify it.',
+'    echo     var arr = input.slice^(^);',
+'    echo.',
+'    echo     // Example (replace this):',
+'    echo     arr.sort^(function^(a,b^){ return a-b; }^);',
+'    echo     return arr;',
+'    echo   }',
+'    echo };',
+'  ) > "%PLUGIN_FILE%"',
+')',
+'',
+'echo.',
+'echo === Step 1: Edit your custom algorithm plugin ===',
+'echo Opening: %PLUGIN_FILE%',
+'echo.',
+'start "" notepad "%PLUGIN_FILE%"',
+'',
+'echo.',
+'echo When you finish editing, come back here and press any key to run the benchmark...',
+'pause > nul',
+'',
+'REM ---- Defaults (can be overridden before running this bat) ----',
+('if "%RUN_TAG%"=="" set RUN_TAG=' + (cfg.tag ? cfg.tag.replace(/"/g,'') : 'user-test')),
+('if "%DATASET%"=="" set DATASET=' + (cfg.inputType ? cfg.inputType.replace(/"/g,'') : 'random')),
+'if "%SEED%"=="" set SEED=123',
+'',
+'echo.',
+'echo === Step 2: Running benchmark ===',
+'echo RUN_TAG=%RUN_TAG%',
+'echo DATASET=%DATASET%',
+'echo SEED=%SEED%',
+'echo.',
+'',
+'node --expose-gc benchmark\\runControlled.js',
+'if errorlevel 1 goto :fail',
+'',
+'node analysis\\buildSummary.js',
+'if errorlevel 1 goto :fail',
+'',
+'node analysis\\buildReportData.js',
+'if errorlevel 1 goto :fail',
+'',
+'start "" report\\index.html',
+'',
+'echo.',
+'echo ✅ Done. UI opened.',
+'echo.',
+'pause',
+'exit /b 0',
+'',
+':fail',
+'echo.',
+'echo ❌ Something failed. Check the error above.',
+'echo.',
+'pause',
+'exit /b 1'
+      ];
+
+      var bat = batLines.join('\r\n');
+      downloadText('USER_CUSTOM_TEST_SETUP.bat', bat, 'text/plain;charset=utf-8;');
+      alert('Downloaded: USER_CUSTOM_TEST_SETUP.bat\nMove it into your src\\ folder, then double-click it.');
+    });
+
+    // Data from report/data.js
+    var data = window.__REPORT_DATA__ || { createdAt: null, sources: [], summaries: [] };
+
+    // Populate algorithm picker (config) from loaded data, otherwise placeholders
+    (function initAlgoPicker() {
+      var algoMap = {};
+      data.summaries.forEach(function (r) {
+        if (!algoMap[r.algorithm]) algoMap[r.algorithm] = (r.displayName || r.algorithm);
+      });
+
+      if (!Object.keys(algoMap).length) {
+        algoMap = {
+          'array-sort-built-in': 'Array.sort() (Built-in)',
+          'quick-sort-recursive': 'Quick Sort (Recursive)'
+        };
+      }
+
+      Object.keys(algoMap).sort().forEach(function (id) {
+        var opt = document.createElement('option');
+        opt.value = id;
+        opt.textContent = algoMap[id] + ' [' + id + ']';
+        algosEl.appendChild(opt);
+      });
+    })();
+
+    function initFiltersOnce() {
+      var all = data.summaries.slice();
+
+      var algValues = uniq(all.map(function (r) { return (r.displayName || r.algorithm || '').trim(); })).sort();
+      var sizeValues = uniq(all.map(function (r) { return String(r.input_size); }))
+        .sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
+      var typeValues = uniq(all.map(function (r) { return r.input_type; })).sort();
+      var srcValues = uniq(all.map(function (r) { return r.__sourceFile; })).sort();
+
+      fillSelect(fAlg, algValues, 'All');
+      fillSelect(fSize, sizeValues, 'All');
+      fillSelect(fType, typeValues, 'All');
+      fillSelect(fSrc, srcValues, 'All');
+
+      // Compare selects (no "All")
+      fillSelectNoAll(cmpA, algValues);
+      fillSelectNoAll(cmpB, algValues);
+      if (algValues.length >= 2) {
+        cmpA.value = algValues[0];
+        cmpB.value = algValues[1];
+      }
+    }
+
+    function resetFilters() {
+      fAlg.value = '';
+      fSize.value = '';
+      fType.value = '';
+      fSrc.value = '';
+      fQ.value = '';
+      renderResults();
+    }
+
+    function getLabel(r) {
+      return ((r.displayName || r.algorithm || '') + '').trim();
+    }
+
+    function matchesQuery(r, q) {
+      if (!q) return true;
+      q = q.toLowerCase();
+      var hay = (
+        (r.algorithm || '') + ' ' +
+        (getLabel(r) || '') + ' ' +
+        (r.input_type || '') + ' ' +
+        String(r.input_size || '') + ' ' +
+        (r.__sourceFile || '')
+      ).toLowerCase();
+      return hay.indexOf(q) !== -1;
+    }
+
+    function filterRows() {
+      var rows = data.summaries.slice();
+
+      rows = rows.filter(function (r) {
+        var label = getLabel(r);
+
+        if (fAlg.value && label !== fAlg.value) return false;
+        if (fSize.value && String(r.input_size) !== fSize.value) return false;
+        if (fType.value && r.input_type !== fType.value) return false;
+        if (fSrc.value && r.__sourceFile !== fSrc.value) return false;
+        if (!matchesQuery(r, fQ.value || '')) return false;
+
+        return true;
+      });
+
+      // Sort: size asc, then time mean asc
+      rows.sort(function (a, b) {
+        if (a.input_size !== b.input_size) return a.input_size - b.input_size;
+        return (a.time_ms_mean || 0) - (b.time_ms_mean || 0);
+      });
+
+      return rows;
+    }
+
+    function renderResults() {
+      tbody.innerHTML = '';
+
+      var rows = filterRows();
+
+      metaEl.textContent =
+        'Generated: ' + (data.createdAt || '—') +
+        ' | Sources: ' + (data.sources ? data.sources.length : 0) +
+        ' | Filtered rows: ' + rows.length;
+
+      // Store last filtered rows for export
+      window.__LAST_FILTERED_ROWS__ = rows.slice();
+
+      rows.forEach(function (r) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + getLabel(r) + '</td>' +
+          '<td class="num">' + r.input_size + '</td>' +
+          '<td>' + r.input_type + '</td>' +
+          '<td class="num">' + r.runs + '</td>' +
+          '<td class="num">' + fmt(r.time_ms_mean, 4) + '</td>' +
+          '<td class="num">' + fmt(r.ops_sec_mean, 2) + '</td>' +
+          '<td class="num">' + fmt(r.memory_kb_mean, 2) + '</td>' +
+          '<td>' + (r.__sourceFile || '') + '</td>';
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function findOne(displayName, rows) {
+      for (var i = 0; i < rows.length; i++) {
+        if (getLabel(rows[i]) === displayName) return rows[i];
+      }
+      return null;
+    }
+
+    function pct(delta) {
+      if (!isFinite(delta)) return '';
+      return (delta * 100).toFixed(2) + '%';
+    }
+
+    function compareAB() {
+      var savedAlgFilter = fAlg.value;
+      fAlg.value = '';
+
+      var rows = filterRows();
+
+      fAlg.value = savedAlgFilter;
+
+      var aName = cmpA.value;
+      var bName = cmpB.value;
+
+      var a = findOne(aName, rows);
+      var b = findOne(bName, rows);
+
+      if (!a || !b) {
+        cmpOut.innerHTML =
+          '<div class="muted">Δεν βρέθηκαν και οι δύο (A/B) μέσα στα τρέχοντα φίλτρα (Size/Type/Source/Search). ' +
+          'Δοκίμασε να χαλαρώσεις φίλτρα ή να αλλάξεις A/B.</div>';
+        return;
+      }
+
+      var dTime = (b.time_ms_mean - a.time_ms_mean) / a.time_ms_mean;
+      var dOps  = (b.ops_sec_mean - a.ops_sec_mean) / a.ops_sec_mean;
+      var dMem  = (b.memory_kb_mean - a.memory_kb_mean) / a.memory_kb_mean;
+
+      var timeLabel = (dTime < 0) ? 'B faster' : 'B slower';
+      var opsLabel  = (dOps > 0) ? 'B higher throughput' : 'B lower throughput';
+      var memLabel  = (dMem < 0) ? 'B uses less memory' : 'B uses more memory';
+
+      cmpOut.innerHTML =
+        '<div class="statline">A: <b>' + aName + '</b> | B: <b>' + bName + '</b></div>' +
+        '<div class="statline">Δ Time: <b>' + pct(dTime) + '</b> (' + timeLabel + ')</div>' +
+        '<div class="statline">Δ Ops/sec: <b>' + pct(dOps) + '</b> (' + opsLabel + ')</div>' +
+        '<div class="statline">Δ Memory: <b>' + pct(dMem) + '</b> (' + memLabel + ')</div>';
+    }
+
+    [fAlg, fSize, fType, fSrc].forEach(function (el) {
+      el.addEventListener('change', renderResults);
+    });
+    fQ.addEventListener('input', renderResults);
+
+    document.getElementById('btnResetFilters').addEventListener('click', function () {
+      resetFilters();
+    });
+
+    document.getElementById('btnExportCsv').addEventListener('click', function () {
+      var rows = window.__LAST_FILTERED_ROWS__ || [];
+      exportCsv(currentExportName('csv'), rows);
+    });
+
+    document.getElementById('btnExportJson').addEventListener('click', function () {
+      var rows = window.__LAST_FILTERED_ROWS__ || [];
+      if (!rows.length) { alert('No rows to export'); return; }
+      downloadText(currentExportName('json'), JSON.stringify(rows, null, 2), 'application/json;charset=utf-8;');
+    });
+
+    btnCompare.addEventListener('click', function () {
+      compareAB();
+    });
+
+    // Init
+    generateConfig();
+    initFiltersOnce();
+    renderResults();
+  </script>
+</body>
+</html>

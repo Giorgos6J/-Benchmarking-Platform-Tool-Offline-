@@ -1,0 +1,14 @@
+{
+  "tag": "exp-1",
+  "sizes": [1000, 10000, 100000, 1000000],
+  "inputTypes": ["random", "sorted", "reversed", "nearlySorted", "duplicates", "fewUnique", "uniform"],
+  "runs": 7,
+  "warmup": 3,
+  "algorithms": [
+    "array-sort-built-in",
+    "insertion-sort",
+    "merge-sort",
+    "quick-sort-recursive",
+    "quick-sort-iterative"
+  ]
+}

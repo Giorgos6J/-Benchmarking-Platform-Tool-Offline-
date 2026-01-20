@@ -1,0 +1,1332 @@
+[
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.1726,
+    "ops_sec": 5793.26,
+    "memory_kb": -0.45
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.5941,
+    "ops_sec": 1683.18,
+    "memory_kb": -0.73
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.1404,
+    "ops_sec": 7124.68,
+    "memory_kb": -1.15
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.059,
+    "ops_sec": 16936.85,
+    "memory_kb": -0.57
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.1882,
+    "ops_sec": 5312.29,
+    "memory_kb": -1.2
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0252,
+    "ops_sec": 39637.6,
+    "memory_kb": -1.18
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0028,
+    "ops_sec": 362694.3,
+    "memory_kb": -1.23
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0772,
+    "ops_sec": 12958.16,
+    "memory_kb": -1.26
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0138,
+    "ops_sec": 72314.05,
+    "memory_kb": -0.83
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0331,
+    "ops_sec": 30211.48,
+    "memory_kb": -1.15
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.023,
+    "ops_sec": 43505.28,
+    "memory_kb": -1.29
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.3851,
+    "ops_sec": 2596.73,
+    "memory_kb": -1.08
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.0814,
+    "ops_sec": 12289.33,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.0143,
+    "ops_sec": 70000,
+    "memory_kb": -1.14
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.0288,
+    "ops_sec": 34773.97,
+    "memory_kb": -1.14
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.0537,
+    "ops_sec": 18617.02,
+    "memory_kb": -1.57
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.0088,
+    "ops_sec": 113268.61,
+    "memory_kb": -1.05
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.0787,
+    "ops_sec": 12699.56,
+    "memory_kb": -1.32
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.0139,
+    "ops_sec": 71942.45,
+    "memory_kb": -1.05
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.0275,
+    "ops_sec": 36401.46,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.1129,
+    "ops_sec": 8856.28,
+    "memory_kb": -1.57
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.1751,
+    "ops_sec": 5712.42,
+    "memory_kb": -1.05
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.085,
+    "ops_sec": 11758.78,
+    "memory_kb": -1.32
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.0288,
+    "ops_sec": 34756.7,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.044,
+    "ops_sec": 22749.43,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.0936,
+    "ops_sec": 10678.87,
+    "memory_kb": -1.65
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.1561,
+    "ops_sec": 6404.98,
+    "memory_kb": -1.06
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.0809,
+    "ops_sec": 12363.12,
+    "memory_kb": -1.32
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.0243,
+    "ops_sec": 41079.81,
+    "memory_kb": 0.65
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.0383,
+    "ops_sec": 26099.93,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.0209,
+    "ops_sec": 47814.21,
+    "memory_kb": -1.26
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 1000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.0291,
+    "ops_sec": 34313.73,
+    "memory_kb": -1.24
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.103,
+    "ops_sec": 9711.43,
+    "memory_kb": -0.57
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.0483,
+    "ops_sec": 20691.69,
+    "memory_kb": -1.27
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.1713,
+    "ops_sec": 5836.74,
+    "memory_kb": -1.08
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 1.6419,
+    "ops_sec": 609.04,
+    "memory_kb": -1.1
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 25.6022,
+    "ops_sec": 39.06,
+    "memory_kb": -11.1
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 1.5926,
+    "ops_sec": 627.89,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.7276,
+    "ops_sec": 1374.38,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 0.8485,
+    "ops_sec": 1178.53,
+    "memory_kb": -9.92
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.1607,
+    "ops_sec": 6223.33,
+    "memory_kb": -11.2
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.0279,
+    "ops_sec": 35860.66,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.8552,
+    "ops_sec": 1169.34,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.2182,
+    "ops_sec": 4582.65,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.362,
+    "ops_sec": 2762.54,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.1825,
+    "ops_sec": 5479.88,
+    "memory_kb": -11.07
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 49.7083,
+    "ops_sec": 20.12,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.9449,
+    "ops_sec": 1058.3,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.2254,
+    "ops_sec": 4436.56,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 0.3763,
+    "ops_sec": 2657.25,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.4111,
+    "ops_sec": 2432.58,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.6762,
+    "ops_sec": 1478.85,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.9576,
+    "ops_sec": 1044.26,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.2303,
+    "ops_sec": 4342.16,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 0.369,
+    "ops_sec": 2709.71,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.8253,
+    "ops_sec": 1211.74,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 22.4351,
+    "ops_sec": 44.57,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 1.0081,
+    "ops_sec": 991.94,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.3976,
+    "ops_sec": 2514.82,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 0.5296,
+    "ops_sec": 1888.12,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.752,
+    "ops_sec": 1329.79,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 20.1008,
+    "ops_sec": 49.75,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.9908,
+    "ops_sec": 1009.24,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.3605,
+    "ops_sec": 2774.04,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 0.4839,
+    "ops_sec": 2066.6,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 10000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.1663,
+    "ops_sec": 6012.2,
+    "memory_kb": -11.2
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 10000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.0261,
+    "ops_sec": 38272.28,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 10000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.8591,
+    "ops_sec": 1164.01,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 10000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.3178,
+    "ops_sec": 3147.06,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 10000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.4463,
+    "ops_sec": 2240.79,
+    "memory_kb": -11.13
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 20.5559,
+    "ops_sec": 48.65,
+    "memory_kb": -11.16
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 2489.5166,
+    "ops_sec": 0.4,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 19.7432,
+    "ops_sec": 50.65,
+    "memory_kb": -111.6
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 9.0546,
+    "ops_sec": 110.44,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 10.1567,
+    "ops_sec": 98.46,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 1.9382,
+    "ops_sec": 515.95,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 0.5039,
+    "ops_sec": 1984.52,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 13.0195,
+    "ops_sec": 76.81,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 3.0888,
+    "ops_sec": 323.75,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 4.3817,
+    "ops_sec": 228.22,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 2.0932,
+    "ops_sec": 477.73,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 4977.6082,
+    "ops_sec": 0.2,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 13.5938,
+    "ops_sec": 73.56,
+    "memory_kb": -111.6
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 3.0017,
+    "ops_sec": 333.14,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 4.4341,
+    "ops_sec": 225.52,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 4.8433,
+    "ops_sec": 206.47,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 66.8842,
+    "ops_sec": 14.95,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 14.2928,
+    "ops_sec": 69.97,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 3.0214,
+    "ops_sec": 330.98,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 4.7537,
+    "ops_sec": 210.36,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 9.5589,
+    "ops_sec": 104.61,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 2240.759,
+    "ops_sec": 0.45,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 14.8651,
+    "ops_sec": 67.27,
+    "memory_kb": -111.6
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 4.7307,
+    "ops_sec": 211.38,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 6.1042,
+    "ops_sec": 163.82,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 8.7165,
+    "ops_sec": 114.72,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 2022.9085,
+    "ops_sec": 0.49,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 14.7926,
+    "ops_sec": 67.6,
+    "memory_kb": -111.6
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 4.6454,
+    "ops_sec": 215.27,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 5.6864,
+    "ops_sec": 175.86,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 100000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 1.9793,
+    "ops_sec": 505.22,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "insertion-sort",
+    "displayName": "insertion-sort",
+    "size": 100000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 0.4923,
+    "ops_sec": 2031.28,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 100000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 13.5765,
+    "ops_sec": 73.66,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 100000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 4.1237,
+    "ops_sec": 242.5,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 100000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 5.5738,
+    "ops_sec": 179.41,
+    "memory_kb": -111.61
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 249.1702,
+    "ops_sec": 4.01,
+    "memory_kb": -111.6
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 301.4817,
+    "ops_sec": 3.32,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 105.5646,
+    "ops_sec": 9.47,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "random",
+    "runs": 7,
+    "time_ms_mean": 129.5496,
+    "ops_sec": 7.72,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 19.2636,
+    "ops_sec": 51.91,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 212.0301,
+    "ops_sec": 4.72,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 32.5439,
+    "ops_sec": 30.73,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "sorted",
+    "runs": 7,
+    "time_ms_mean": 53.4203,
+    "ops_sec": 18.72,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 19.4037,
+    "ops_sec": 51.54,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 207.853,
+    "ops_sec": 4.81,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 36.1149,
+    "ops_sec": 27.69,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "reversed",
+    "runs": 7,
+    "time_ms_mean": 54.9267,
+    "ops_sec": 18.21,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 57.7211,
+    "ops_sec": 17.32,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 214.7772,
+    "ops_sec": 4.66,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 34.9135,
+    "ops_sec": 28.64,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "nearlySorted",
+    "runs": 7,
+    "time_ms_mean": 55.4394,
+    "ops_sec": 18.04,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 100.6862,
+    "ops_sec": 9.93,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 233.7075,
+    "ops_sec": 4.28,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 55.6437,
+    "ops_sec": 17.97,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "duplicates",
+    "runs": 7,
+    "time_ms_mean": 75.4837,
+    "ops_sec": 13.25,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 96.1423,
+    "ops_sec": 10.4,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 220.976,
+    "ops_sec": 4.53,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 51.4602,
+    "ops_sec": 19.43,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "fewUnique",
+    "runs": 7,
+    "time_ms_mean": 71.8256,
+    "ops_sec": 13.92,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "array-sort-built-in",
+    "displayName": "array-sort-built-in",
+    "size": 1000000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 18.3109,
+    "ops_sec": 54.61,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "merge-sort",
+    "displayName": "merge-sort",
+    "size": 1000000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 203.5561,
+    "ops_sec": 4.91,
+    "memory_kb": -1116.29
+  },
+  {
+    "algorithm": "quick-sort-recursive",
+    "displayName": "quick-sort-recursive",
+    "size": 1000000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 47.1359,
+    "ops_sec": 21.22,
+    "memory_kb": -1116.07
+  },
+  {
+    "algorithm": "quick-sort-iterative",
+    "displayName": "quick-sort-iterative",
+    "size": 1000000,
+    "type": "uniform",
+    "runs": 7,
+    "time_ms_mean": 66.9287,
+    "ops_sec": 14.94,
+    "memory_kb": -1116.07
+  }
+]
